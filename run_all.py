@@ -3,7 +3,7 @@
 # PRT564 Data Analytics and Visualisation — Assessment 2
 #
 # Purpose:
-#   Master pipeline script. Runs all six analysis steps in order.
+#   Master pipeline script. This script runs all six analysis steps in order.
 #   This single script reproduces the entire analysis from raw data
 #   to final findings, satisfying the HD reproducibility requirement.
 #
@@ -89,7 +89,7 @@ def run_step(step_num, description, module_name):
     result = mod.main()
 
     elapsed = time.time() - start
-    print(f"✓ Step {step_num} completed in {elapsed:.1f}s")
+    print(f"Step {step_num} completed in {elapsed:.1f}s")
 
     return result
 
@@ -110,32 +110,32 @@ def main():
     # Check data files exist before starting
     check_prerequisites()
 
-    # ── STEP 1: ETL — Load and integrate data sources ────────────────────────
+    # STEP 1: ETL — Load and integrate data sources
     merged_clean = run_step(
         1, "Data Loading & Integration (ETL)",
         "01_load_data"
     )
 
-    # ── STEP 2: Preprocessing & Feature Engineering ──────────────────────────
+    #STEP 2: Preprocessing & Feature Engineering
     merged_enriched, regression_data = run_step(
         2, "Preprocessing & Feature Engineering",
         "02_preprocess"
     )
 
-    # ── STEP 3: Exploratory Data Analysis ────────────────────────────────────
+    # ── STEP 3: Exploratory Data Analysis 
     run_step(
         3, "Exploratory Data Analysis (7 charts)",
         "03_eda"
     )
 
-    # ── STEP 4: Regression Modelling ─────────────────────────────────────────
+    # STEP 4: Regression Modelling
     df, y, m1, m2, m3 = run_step(
         4, "Regression Modelling (M1, M2, M3)",
         "04_models"
     )
 
-    # ── STEP 5: Statistical Evaluation ───────────────────────────────────────
-    # Run tests directly using results from step 4
+    # STEP 5: Statistical Evaluation
+    # Running tests directly using results from step 4
     print(f"\n{'='*60}")
     print("RUNNING STEP 5: Statistical Evaluation")
     print(f"{'='*60}")
@@ -156,13 +156,13 @@ def main():
 
     print(f"✓ Step 5 completed in {time.time() - start:.1f}s")
 
-    # ── STEP 6: Findings & Interpretation ────────────────────────────────────
+    # STEP 6: Findings & Interpretation
     run_step(
         6, "Findings & Non-Technical Interpretation",
         "06_findings"
     )
 
-    # ── PIPELINE COMPLETE ─────────────────────────────────────────────────────
+    # PIPELINE COMPLETE
     total_elapsed = time.time() - total_start
     print("\n" + "=" * 60)
     print(f"PIPELINE COMPLETE — {total_elapsed:.1f}s total")
@@ -186,10 +186,6 @@ def main():
         full_path = os.path.join(config.OUTPUTS_DIR, fname)
         status    = "✓" if os.path.exists(full_path) else "✗ MISSING"
         print(f"  [{ftype:5s}] {status}  {fname}")
-
-    print("\nPush the outputs/ folder to GitHub along with this project.")
-    print("Include the GitHub link in your submission .txt file.")
-
 
 if __name__ == "__main__":
     main()

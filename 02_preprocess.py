@@ -87,7 +87,7 @@ def engineer_features(df):
     """
     print("\nEngineering features...")
 
-    # ── PER-CAPITA DEMAND ────────────────────────────────────────────────────
+    # PER-CAPITA DEMAND
     # Normalise total trips by population to detect structural demand changes
     # that raw counts would obscure (e.g. trips declining per person even as
     # total trips look stable because more people are moving to NSW).
@@ -95,7 +95,7 @@ def engineer_features(df):
         df["Total_Trips"] / df["Total_Population"] * 1000
     )
 
-    # ── GROWTH RATES ─────────────────────────────────────────────────────────
+    # GROWTH RATES
     # Year-over-year (12-month lag) removes seasonal effects and captures
     # structural demand changes. Used in Model 2/3 as a predictor.
     df["Population_YoY_Growth"] = df["Total_Population"].pct_change(12) * 100
@@ -105,21 +105,21 @@ def engineer_features(df):
     df["Trips_MoM_Change"]     = df["Total_Trips"].diff()
     df["Trips_MoM_Pct_Change"] = df["Total_Trips"].pct_change() * 100
 
-    # ── LOG TRANSFORMATIONS ──────────────────────────────────────────────────
+    # LOG TRANSFORMATIONS
     # Log-log regression: ln(Trips) ~ β₀ + β₁·ln(Population)
     # Coefficient β₁ = demand elasticity with respect to population.
     # Log transform also stabilises variance in count data.
     df["Log_Total_Trips"] = np.log(df["Total_Trips"])
     df["Log_Population"]  = np.log(df["Total_Population"])
 
-    # ── MODE PROPORTIONS AND PER-CAPITA BY MODE ───────────────────────────────
+    # MODE PROPORTIONS AND PER-CAPITA BY MODE
     # Used in EDA mode share charts to show how the transport mix has shifted.
     mode_cols = [c for c in df.columns if c in config.TRANSPORT_MODES]
     for mode in mode_cols:
         df[f"{mode}_Proportion"] = (df[mode] / df["Total_Trips"] * 100)
         df[f"{mode}_Per_Capita"] = (df[mode] / df["Total_Population"] * 1000)
 
-    # ── TEMPORAL VARIABLES ───────────────────────────────────────────────────
+    # TEMPORAL VARIABLES
     # Time_Index: sequential integer 0, 1, 2, ... n-1
     # Captures the linear time trend caused by cumulative infrastructure
     # investment, route expansion, and service frequency improvements.
@@ -128,7 +128,7 @@ def engineer_features(df):
     df["Quarter"]    = df["Date"].dt.quarter
     df["Season"]     = df["Date"].dt.month % 12 // 3 + 1
 
-    # ── COVID STRUCTURAL PERIOD FLAGS ────────────────────────────────────────
+    # COVID STRUCTURAL PERIOD FLAGS
     # Three structurally distinct demand periods exist in the data:
     #
     #   Pre-COVID  (before Mar 2020) — baseline growing demand

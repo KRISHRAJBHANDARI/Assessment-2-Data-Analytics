@@ -10,9 +10,11 @@
 #
 # Authors:
 #   Nasla Maharjan    (S398425) — ETL, preprocessing
-#   Krish Rajbhandari (S395754) — modelling, evaluation
-#   Suyog Kadariya    (S393829) — EDA, findings, presentation
+#   Suyog Kadariya    (S393829) — modelling, evaluation
+#   Krish Rajbhandari (S395754) — findings, presentation
+#   All - EDA
 #
+# Group:   Sydney Group 2
 # Unit:    PRT564 | Campus: Sydney | Year: 2026
 # GitHub:  https://github.com/KRISHRAJBHANDARI/Assessment-2---PRT-564
 # =============================================================================

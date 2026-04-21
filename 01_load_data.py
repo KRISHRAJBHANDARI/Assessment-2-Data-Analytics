@@ -24,7 +24,7 @@ import numpy as np
 import sys
 import os
 
-# Add parent directory to path so config.py is always importable
+# Adding parent directory to path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import config
 
@@ -50,7 +50,7 @@ def load_opal_data():
     print(f"  Date range:       {opal_raw['Year_Month'].min()} to {opal_raw['Year_Month'].max()}")
     print(f"  Raw travel modes: {sorted(opal_raw['Travel_Mode'].unique())}")
 
-    # Standardise mode names — remove leading/trailing whitespace and apply
+    # Standardise mode names — remove leading/trailing whitespace
     # consistent title case so 'train', 'Train', 'TRAIN' all become 'Train'.
     # This is essential before groupby aggregation.
     opal_raw["Travel_Mode"] = opal_raw["Travel_Mode"].str.strip().str.title()
