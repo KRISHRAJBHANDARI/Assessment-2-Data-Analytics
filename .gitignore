@@ -4,3 +4,6 @@
 
 # Ignore CSV files
 *.csv
+
+# Temp docx working file
+*~$ Usage Declaration Form.docx
