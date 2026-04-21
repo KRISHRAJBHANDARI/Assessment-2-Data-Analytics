@@ -7,8 +7,8 @@
 | Name              | Student ID | Contribution                                                                   |
 | ----------------- | ---------- | ------------------------------------------------------------------------------ |
 | Nasla Maharjan    | S398425    | ETL pipeline (`01_load_data.py`, `02_preprocess.py`)                       |
-| Krish Rajbhandari | S395754    | Regression models & statistical testing (`04_models.py`, `05_evaluate.py`) |
-| Suyog Kadariya    | S393829    | EDA visualisations & findings (`03_eda.py`, `06_findings.py`)              |
+| Suyog Kadariya    | S393829    | Regression models & statistical testing (`04_models.py`, `05_evaluate.py`) |
+| Krish Rajbhandari | S395754    | EDA visualisations & findings (`03_eda.py`, `06_findings.py`)              |
 
 **Campus:** Sydney | **Unit:** PRT564 | **Year:** 2026 | **Group:** SYDN G2
 
