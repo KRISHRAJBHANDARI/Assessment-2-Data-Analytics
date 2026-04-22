@@ -4,3 +4,9 @@
 
 # Ignore CSV files
 *.csv
+
+# Temp docx working file
+*~$ Usage Declaration Form.docx
+
+# Ignore Visual Studio Code settings folders
+*.vscode
