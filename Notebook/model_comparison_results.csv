@@ -1,0 +1,4 @@
+Model,Equation,R²,RMSE,MAE,λ (Ridge)
+M1: Simple Log-Log,ln(T) ~ ln(Pop),0.0011,0.40659,0.2966,—
+M2: Multiple OLS + COVID,ln(T) ~ ln(Pop) + Time + PopGrowth + COVID,0.6266,0.24859,0.14832,—
+M3: Ridge (CV-tuned),ln(T) ~ all + Recovery + Month  [L2],0.6491,0.24097,0.14181,0.0046
