@@ -46,8 +46,8 @@ pip install -r requirements.txt
 ```
 opal_transport_analysis/
 └── data/
-    ├── opal_trips.csv          ← download from data.gov.au
-    └── 3101051.xlsx            ← download from ABS website
+    ├── opal_trips.csv         
+    └── 3101051.xlsx           
 ```
 
 ### 3. Run the full pipeline
@@ -65,23 +65,23 @@ All outputs are saved to the `outputs/` folder automatically.
 ```
 opal_transport_analysis/
 │
-├── README.md               This file
-├── requirements.txt        Python dependencies
-├── config.py               All paths and constants
+├── README.md              
+├── requirements.txt     
+├── config.py               
 │
-├── data/                   Input data files (not committed to GitHub)
+├── data/                  
 │   ├── opal_trips.csv
 │   └── 3101051.xlsx
 │
-├── outputs/                Generated charts and CSVs (auto-created)
+├── outputs/               
 │
-├── 01_load_data.py         ETL: load, standardise, merge both data sources
-├── 02_preprocess.py        Feature engineering, COVID flags, regression dataset
-├── 03_eda.py               7 EDA visualisations
-├── 04_models.py            3 regression models (OLS × 2, Ridge)
-├── 05_evaluate.py          5 statistical tests + evaluation charts
-├── 06_findings.py          Technical & non-technical findings output
-└── run_all.py              Master script — runs everything in order
+├── 01_load_data.py         
+├── 02_preprocess.py       
+├── 03_eda.py               
+├── 04_models.py            
+├── 05_evaluate.py         
+├── 06_findings.py          
+└── run_all.py              
 ```
 
 ---
