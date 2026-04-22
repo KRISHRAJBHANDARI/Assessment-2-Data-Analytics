@@ -1,5 +1,10 @@
 # NSW Opal Trip Demand Analysis
 
+<p align="center">
+  <img src="./cover.png" alt="Project Cover" width="100%"/>
+</p>
+
+
 ## PRT564 Data Analytics and Visualisation — Assessment 2
 
 **Group Members:**
